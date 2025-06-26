@@ -1,0 +1,55 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+            - Name: Cache
+  verwendet: actions/cache@v4.2.3
+  mit:
+    # Eine Liste von Dateien, Verzeichnissen und Platzhaltermustern zum Zwischenspeichern und Wiederherstellen
+    Weg:
+    # Ein expliziter Schlüssel zum Wiederherstellen und Speichern des Cache
+    Schlüssel:
+    # Ein geordneter mehrzeiliger String mit den Schlüsseln mit übereinstimmendem Präfix, die zum Wiederherstellen des veralteten Caches verwendet werden, wenn für den Schlüssel kein Cache-Treffer gefunden wurde. Beachten Sie, dass `cache-hit` in diesem Fall „false“ zurückgibt.
+    Wiederherstellungsschlüssel: # optional
+    # Die Blockgröße, die zum Aufteilen großer Dateien während des Hochladens verwendet wird, in Bytes
+    Upload-Chunk-Größe: # optional
+    # Ein optionaler Boolean-Wert ermöglicht es Windows-Runnern, Caches zu speichern oder wiederherzustellen, die auf anderen Plattformen wiederhergestellt bzw. gespeichert werden können.
+    enableCrossOsArchive: # optional, Standard ist false
+    # Den Workflow fehlschlagen lassen, wenn kein Cache-Eintrag gefunden wird
+    fail-on-cache-miss: # optional, Standard ist false
+    # Überprüfen Sie, ob für die angegebenen Eingaben (Schlüssel, Wiederherstellungsschlüssel) ein Cache-Eintrag vorhanden ist, ohne den Cache herunterzuladen
+    Nur nachschlagen: # optional, Standard ist „false“
+    # Führen Sie den Post-Schritt aus, um den Cache zu speichern, auch wenn ein anderer Schritt zuvor fehlschlägt
+    immer speichern: # optional, Standard ist „false“
+          echo test, and deploy your project.
